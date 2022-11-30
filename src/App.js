@@ -1,9 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Cart from './components/Cart';
 import ProduceList from './components/ProduceList';
+import { populateProduce } from './store/produce';
+import { useDispatch } from 'react-redux';
 
 function App() {
   const [showCart, setShowCart] = useState(false);
+  const dispatch = useDispatch(); 
+
+  useEffect(() => { 
+    dispatch(populateProduce())
+  }, []); 
   
   return (
     <>
