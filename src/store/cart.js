@@ -19,7 +19,7 @@ export function removeFromCart(id) {
     }
 };
 
-// Redux Action for updating produce count from cart state. Dispatech in Cart component.
+// Redux Action for updating produce count from cart state. Dispatched in Cart component.
 export function updateProduceCount(id, delta, operation) { 
     return { 
         type: UPDATE_COUNT, 
