@@ -28,7 +28,7 @@ function Cart() {
     window.alert(
       "Purchased the following:\n" +
       `${cartItems.map(item => `${item.count} of ${item.name}`).join('\n')}`
-    );
+    );    
   }
 
   return (
