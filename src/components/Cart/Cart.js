@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import './Cart.css';
 
 function Cart() {
-  const cart = useSelector((state) => state.produce);
+  const cart = useSelector((state) => state.cart);
   const produce = useSelector((state) => state.produce); 
 
   const cartItems = Object.values(cart)
@@ -13,6 +13,9 @@ function Cart() {
         ...produce[item.id]
       };
     });
+
+    console.log(cartItems); 
+
 
   if (!cartItems || !cartItems.length) return (
     <div className="cart">
