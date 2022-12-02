@@ -1,6 +1,7 @@
 const ADD_ITEM = 'cart/ADD_ITEM'; 
 const REMOVE_ITEM = 'cart/REMOVE_ITEM'; 
 const UPDATE_COUNT = 'cart/UPDATE_ITEM';
+const CLEAR_CART = 'cart/CLEAR_CART'
 
 // Redux Action for adding produce to cart state. Dispatched in ProduceList component. 
 export function addToCart(id) { 
@@ -28,7 +29,12 @@ export function updateProduceCount(id, delta, operation) {
     }
 };
 
-
+// Redux Action for clearing produce count from cart state upon produce purchase. Dispatched in Cart component. 
+export function clearCartOnPurchase() { 
+    return { 
+        type: CLEAR_CART
+    }
+}
 
 export default function cartReducer(state = {}, action) { 
     switch(action.type) { 
@@ -48,7 +54,9 @@ export default function cartReducer(state = {}, action) {
             } else { 
                 let { [action.id]: removedItem, ...remainingItems } = state;
                 return remainingItems; 
-            } 
+            }; 
+        case CLEAR_CART: 
+            return {}
         default: 
             return state; 
     }
