@@ -19,8 +19,10 @@ export function updateLikeStatus(id) {
     }
 }
 
+// Selector function - replaces useSelector functions in the ProduceList component
+export const getAllProduce = (state) => Object.values(state.produce); 
 
-// Helper function
+// Reducer Helper function
 function createState(produceArr) { 
     const newState = {}; 
     

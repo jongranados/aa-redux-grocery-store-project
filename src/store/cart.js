@@ -36,6 +36,23 @@ export function clearCartOnPurchase() {
     }
 }
 
+// Selector function - DRYs useSelector functionality in Cart component. 
+export function getCartItems (state) { 
+    const cart = state.cart;
+    const produce = state.produce; 
+
+    const cartItems = Object.values(cart)
+        .map(item => {
+            return {
+                ...item,
+                ...produce[item.id]
+            };
+        });
+
+    return cartItems; 
+}
+
+// Reducer function
 export default function cartReducer(state = {}, action) { 
     switch(action.type) { 
         case ADD_ITEM: 
