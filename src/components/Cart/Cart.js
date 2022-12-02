@@ -7,18 +7,8 @@ import './Cart.css';
 function Cart() {
   const dispatch = useDispatch(); 
 
+  
   const cartItems = useSelector(getCartItems)
-
-  // const cart = useSelector((state) => state.cart);
-  // const produce = useSelector((state) => state.produce); 
-
-  // const cartItems = Object.values(cart)
-  //   .map(item => {
-  //     return {
-  //       ...item,
-  //       ...produce[item.id]
-  //     };
-  //   });
 
   if (!cartItems || !cartItems.length) return (
     <div className="cart">
